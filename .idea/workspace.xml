@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66f36798-fcad-4791-bd65-44f475f8efa1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/public/Products.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Basket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ChooseSize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ClothesList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IconComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images_for_project/4fdd2948-7ec7-442a-ac27-68634efa6f8a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images_for_project/7770097.01.0100_c5c12e9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images_for_project/RENUAR416G.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images_for_project/download.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/images_for_project/f_1428_12513_12533_13520121482293181.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/actions/action.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/addToBasket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/allReducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/clothesListReducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/openBasket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/reducers/sizeModal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/usefullFunctions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -41,10 +19,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClothesList.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClothesList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClothesList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
+            <state relative-caret-position="578">
               <caret line="97" column="54" lean-forward="true" selection-start-line="97" selection-start-column="54" selection-end-line="97" selection-end-column="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -53,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseSize.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ChooseSize.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChooseSize.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
@@ -296,25 +274,24 @@
       <workItem from="1545829964020" duration="39179000" />
       <workItem from="1552053802746" duration="74489000" />
       <workItem from="1552835348144" duration="53206000" />
-      <workItem from="1554881854036" duration="16233000" />
+      <workItem from="1554881854036" duration="17663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196678000" />
+    <option name="totallyTimeSpent" value="198108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3848" y="-224" width="1936" height="1080" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.32838285" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.21549894" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.21549894" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
-      <window_info active="true" content_ui="combo" id="Project" order="3" visible="true" weight="0.12802951" />
+      <window_info content_ui="combo" id="Project" order="3" visible="true" weight="0.12802951" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32866043" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
@@ -685,16 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ChooseSize.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Basket.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -714,8 +681,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ClothesList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="578">
           <caret line="97" column="54" lean-forward="true" selection-start-line="97" selection-start-column="54" selection-end-line="97" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ChooseSize.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
