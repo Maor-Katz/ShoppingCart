@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/Basket.js" line="44" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66f36798-fcad-4791-bd65-44f475f8efa1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="66f36798-fcad-4791-bd65-44f475f8efa1" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -34,8 +32,8 @@
       <file leaf-file-name="ChooseSize.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ChooseSize.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
+            <state relative-caret-position="340">
+              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -274,15 +272,16 @@
       <workItem from="1545829964020" duration="39179000" />
       <workItem from="1552053802746" duration="74489000" />
       <workItem from="1552835348144" duration="53206000" />
-      <workItem from="1554881854036" duration="17663000" />
+      <workItem from="1554881854036" duration="19772000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198108000" />
+    <option name="totallyTimeSpent" value="200217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3848" y="-224" width="1936" height="1080" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="10" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -691,8 +690,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ChooseSize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="89" selection-start-line="29" selection-start-column="89" selection-end-line="29" selection-end-column="89" />
+        <state relative-caret-position="340">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
