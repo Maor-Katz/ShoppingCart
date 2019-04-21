@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import logo1 from "./images_for_project/download.jpeg"
 import logo2 from "./images_for_project/RENUAR416G.jpg"
@@ -7,6 +6,7 @@ import logo3 from "./images_for_project/7770097.01.0100_c5c12e9.jpg"
 import logo4 from "./images_for_project/f_1428_12513_12533_13520121482293181.jpg"
 import logo5 from "./images_for_project/4fdd2948-7ec7-442a-ac27-68634efa6f8a.jpg"
 import {connect} from 'react-redux'
+import Select from '@material-ui/core/Select';
 import {addList, addToBasket, openOrCloseModalSize} from "./redux/actions/action";
 
 
@@ -73,18 +73,19 @@ class ClothesList extends React.Component {
                             <div className="priceShirt">
                                 <span>{shirt.currencyFormat}</span><span> {shirt.price}</span>
                             </div>
-                            <div className="availableSizes">{<select id={'mySelect' + index} className='mySelect'>
+                            <div className="availableSizes">{<Select id={'mySelect' + index} className='mySelect'
+                                                                     native={true} >
                                 <option>Choose size</option>
                                 {shirt.availableSizes.map((size, index) => <option key={index}
                                                                                    onChange={() => this.handleChange(index)}>{size}</option>)}
-                            </select>}</div>
+                            </Select>}</div>
                             <div><img className="imgShop" src={images[Math.floor(Math.random() * images.length)]}/>
                             </div>
                             <div>
                                 <button className="addButton" onClick={(e) => {
                                     this.getSizeOfShirtAndAdd(index)
                                     e.preventDefault()
-                                }}>ADD TO CART
+                                }}>Add To Cart
                                 </button>
                             </div>
                         </div>
