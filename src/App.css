@@ -1,18 +1,35 @@
 .App {
   text-align: center;
+
 }
 .App-header {
-  background-color: yellow;
-  min-width: 100%;
+  background-color: #039be5;
   display: flex;
-  flex-direction: column;
   align-items: center;
-height: 50px;
-  position: relative;
-  top: 0px;
+  height: 50px;
   justify-content: center;
-  font-size: calc(5px + 2vmin);
-  color: blue;
+  font-size: 20px;
+  color: white;
+  z-index: 5;
+  position: relative;
+}
+a{
+   text-decoration: none;
+ }
+.mkApp{
+  font-size: 36px;
+  color: white;
+}
+
+.shoppingCartFilter{
+position: absolute;
+  right: 8px;
+
+
+}
+.shoppingIcon{
+  margin-right: 20px;
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -25,27 +42,35 @@ height: 50px;
 }
 
 .cat{
+  color: white;
   position: absolute;
   top: 0px;
   left: 2px;
   transform: rotate(-30deg);
   transform-origin: 93% -9%;
   font-size: 35px;
+  z-index: 5;
 }
 .buttonCircle{
   background-color: darkgrey;
   border: none;
   color: white;
-  padding: 20px;
   text-align: center;
-  text-decoration: none;
   font-size: 16px;
   border-radius: 50%;
-  min-width: 70px;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
 }
-.blue{background-color: blue;}
+.backToTop {
+  position: fixed;
+  background-color: #039be5;
+  border-radius: 20px;
+  left: 20%;
+}
+.black{background-color: black;}
 .buttonCircle:hover{
-  background-color: yellow;
+  background-color: #039be5;
   cursor: pointer;
 }
 .sizes{
@@ -69,6 +94,7 @@ height: 50px;
   margin-top: 5px;
   display: block;
   border-radius: 10px;
+  text-align: center;
 }
 .container{
   display: flex;
@@ -80,13 +106,15 @@ height: 50px;
   flex: 1;
 }
 .productsText{
-  text-align: left;
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 .lineInShirt{
   height: 2px;
   width: 20px;
   margin: 0 auto;
-  background-color: yellow;
+  background-color: #039be5;
 }
 .clothesList{
   display: flex;
@@ -96,6 +124,7 @@ height: 50px;
   margin-left: 20px;
   width: 200px;
   margin-top: 20px;
+  margin: auto;
 }
 .imgShop{
   width: 150px;
@@ -105,12 +134,12 @@ height: 50px;
   height: 45px;
 }
 .shirt:hover .addButton{
-  background-color: yellow;
+  background-color: #039be5;
 }
 .addButton{
   background-color: black;
   border: none;
-  color: blue;
+  color: white;
   height: 40px;
   text-align: center;
   text-decoration: none;
@@ -126,21 +155,21 @@ height: 50px;
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: yellow;
+  background-color: #039be5;
 }
 .closeDrawer{
   font-size: 40px;
-  text-align: right;
-  margin-right: 5px;
+  margin-left: 7px;
   width: 30px;
+  margin-top: 40px;
 }
 .closeDrawer:hover{cursor: pointer;}
 
 @keyframes drawer {
   from {width: 0%;}
   to {width: 30%;}
-  0%   {background-color: grey;}
-  100%  {background-color: yellow;}
+  0%   {background-color: white;}
+  100%  {background-color: #039be5;}
 }
 
 .basket {
@@ -156,13 +185,13 @@ height: 50px;
   background: #f1f1f1;
 }
 .basket::-webkit-scrollbar-thumb {
-  background: blue;
+  background: grey;
 }
 .goToBasket{
   margin-top: 100px ;
   background-color: black;
   border: none;
-  color: grey;
+  color: white;
   height: 80px;
   text-align: center;
   text-decoration: none;
@@ -170,13 +199,14 @@ height: 50px;
   min-width: 200px;
 }
 .goToBasket:hover{cursor: pointer;
-  background-color: yellow;}
+  background-color: #039be5;}
 .basketList{
   display: flex;
   flex-direction: column;
 }
 .shirtInBasket{
   display: flex;
+  text-align: center;
 }
 .deleteShirt{flex:1;}
 .shirtDetails{flex: 3}
@@ -186,5 +216,39 @@ height: 50px;
 .chooseAnySize{font-size: 20px;}
 .footer{
   height: 10px;
+}
+
+@media (max-width: 700px) {
+  @keyframes drawer {
+    from {width: 100%;}
+    to {width: 100%;}
+    0%   {background-color: white;}
+    100%  {background-color: #039be5;}
+  }
+.basket{
+  height: 100%;
+  width: 100%;
+}
+.backToTopBasket{
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.sizes{
+  text-align: center;
+}
+.backToShop{
+  margin-top: 15px;
+}
+
+.basketList{
+  margin-top: 60px;
+}
+.shirtInBasket{
+  text-align: center;
+}
+.shirtDetails{
+  flex: 10;
+}
 
 }

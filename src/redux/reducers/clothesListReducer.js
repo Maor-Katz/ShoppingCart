@@ -16,7 +16,7 @@ export const clothesListReducers = (state = initialState, action) => {
             let filteredListArr = [];
             state.list.forEach(shirt => {
                 shirt.availableSizes.map(size => {
-                    size === action.sizeOfShirts && filteredListArr.push(shirt)
+                  return  size === action.sizeOfShirts && filteredListArr.push(shirt)
                 })
             })
             var newState = Object.assign({}, state, {filteredList: filteredListArr});

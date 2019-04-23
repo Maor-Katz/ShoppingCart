@@ -11,8 +11,10 @@ export const addToBasket = (state = initialState, action) => {
             return newState;
         case 'DELETE_SHIRT':
             let afterDelete = Object.assign({}, state, {
-                myList: state.myList.filter((shirt) => {
-                    return shirt.id !== action.newShirt
+                myList: state.myList.filter((shirt,index) => {
+                    debugger
+
+                    return index !== action.newShirt
                 })
             })
             return afterDelete

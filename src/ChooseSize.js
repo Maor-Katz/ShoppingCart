@@ -13,12 +13,12 @@ export class ChooseSize extends React.Component {
 
     render() {
 
-        const {list, dispatch, sortList, addList} = this.props
+        const {sortList, addList, mobileMode} = this.props
         return (
             <div className="sizes">
                 <div className="sizeText">Sizes:</div>
                 <div className="sizeButtons">
-                    <button className="buttonCircle blue" onClick={() => listFromJson(addList)}>ALL</button>
+                    <button className="buttonCircle black" onClick={() => listFromJson(addList)}>ALL</button>
                     <button className="buttonCircle" onClick={() => sortList('XS')}>XS</button>
                     <button className="buttonCircle" onClick={() => sortList('S')}>S</button>
                     <button className="buttonCircle" onClick={() => sortList('M')}>M</button>
@@ -26,8 +26,13 @@ export class ChooseSize extends React.Component {
                     <button className="buttonCircle" onClick={() => sortList('XL')}>XL</button>
                     <button className="buttonCircle" onClick={() => sortList('XXL')}>XXL</button>
                 </div>
-                <div className="textGithub">like my project github dude!</div>
-                <a className="starButton" href="https://github.com/Maor-Katz/ShoppingCart" target="_blank">Click To Star</a>
+                {!mobileMode &&
+                <div>
+                    <div className="textGithub">Like my project github!</div>
+                    <a className="starButton" href="https://github.com/Maor-Katz/ShoppingCart" target="_blank" rel="noopener noreferrer">Click To
+                        Star</a>
+                </div>
+                }
             </div>
         );
     }

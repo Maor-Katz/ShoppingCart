@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux'
-import {addList, addToBasket, openOrCloseBasket, deleteShirt} from "./redux/actions/action";
+import {addList, addToBasket, openOrCloseBasket} from "./redux/actions/action";
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStroopwafel, faCat, faWindowClose} from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +9,9 @@ import logo2 from "./images_for_project/RENUAR416G.jpg"
 import logo3 from "./images_for_project/7770097.01.0100_c5c12e9.jpg"
 import logo4 from "./images_for_project/f_1428_12513_12533_13520121482293181.jpg"
 import logo5 from "./images_for_project/4fdd2948-7ec7-442a-ac27-68634efa6f8a.jpg"
+import Button from '@material-ui/core/Button';
+import {Link} from "react-router-dom";
+
 
 export class Basket extends React.Component {
     constructor(props) {
@@ -18,15 +21,20 @@ export class Basket extends React.Component {
 
     render() {
         library.add(faCat, faStroopwafel, faWindowClose)
-        const {openOrCloseBasket, myList, addToBasket} = this.props;
+        const {openOrCloseBasket, myList, addToBasket, isMobile} = this.props;
+
+
         const {images} = this.state;
         return (
+
             <div className="basket">
-                <div className="closeDrawer" onClick={() => {
-                    openOrCloseBasket(false);
-                }}>
-                    <FontAwesomeIcon icon="window-close"/>
-                </div>
+                { !isMobile &&
+                    <div className="closeDrawer" onClick={() => {
+                        openOrCloseBasket(false);
+                    }}>
+                        <FontAwesomeIcon icon="window-close"/>
+                    </div>
+                }
                 <div className="basketList">
 
                     {myList && myList.map((shirt, index) => {
@@ -36,18 +44,24 @@ export class Basket extends React.Component {
                                 <div className="descriptionShirt">{shirt.description}</div>
                                 <div className="sizeOfShirt">Size: {shirt.chosenSize}</div>
                                 <div className="priceShirt"><span>{shirt.price}</span><span>{shirt.currencyId}</span>
-                                    <div><img className="imgBasket"
+                                    <div><img alt="description" className="imgBasket"
                                               src={images[Math.floor(Math.random() * images.length)]}/></div>
                                 </div>
                             </div>
-                            <div className="deleteShirt" onClick={() => addToBasket(shirt.id, 'DELETE_SHIRT')}>
+                            <div className="deleteShirt" onClick={() => addToBasket(index, 'DELETE_SHIRT')}>
                                 <FontAwesomeIcon icon="window-close"/></div>
                         </div>
                     })
                     }
 
                 </div>
+                {isMobile &&
+                <div className='backToTopBasket'><Link to="/" ><Button variant="contained" >Back
+                    To Shop</Button></Link></div>
+                }
+
             </div>
+
         );
     }
 }
