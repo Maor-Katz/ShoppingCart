@@ -1,27 +1,27 @@
 import React, {Component} from 'react';
 import './App.css';
-import {IconComponent} from "./IconComponent";
-import ChooseSize from "./ChooseSize";
-import ClothesList from "./ClothesList";
-import Modal from 'react-modal';
 import Basket from "./Basket";
+import ChooseSize from "./ChooseSize";
+import Home from "./Home";
 import {addList, addToBasket, openOrCloseBasket} from "./redux/actions/action";
 import {connect} from "react-redux";
-import BackToTop from "react-back-to-top-button";
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faFilter, faShoppingCart} from '@fortawesome/free-solid-svg-icons'
+import {faFilter, faShoppingCart, faCat} from '@fortawesome/free-solid-svg-icons'
+import {BrowserRouter as Router, Route, Link, Redirect, Switch} from "react-router-dom";
+import NotificationBadge from 'react-notification-badge';
+import {Effect} from 'react-notification-badge';
+import Modal from 'react-modal';
 import Button from '@material-ui/core/Button';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isMobile: false,
-            filterModalIsOpen: false
-
+            filterModalIsOpen: false,
         }
+
         this.customStyles = {
             content: {
                 top: '50%',
@@ -40,19 +40,7 @@ class App extends Component {
         };
     }
 
-    backToTop = {
-        backgroundColor: '#039be5',
-        borderRadius: '20px',
-        width: '150px',
-        height: '50px',
-        fontSize: '18px',
-        bottom: '80px',
-        right: '20%',
-        color: 'white',
-        zIndex: '5',
 
-
-    }
     updateDimensions = (e) => {
         e.target.innerWidth < 700 ? this.setState({isMobile: true}) : this.setState({isMobile: false})
     }
@@ -63,82 +51,54 @@ class App extends Component {
     }
 
     render() {
-        library.add(faShoppingCart, faFilter)
-        const {isBasketTime, openOrCloseBasket} = this.props
+        library.add(faShoppingCart, faFilter, faCat)
+        const {counterMobile} = this.props
         const {isMobile, filterModalIsOpen} = this.state
-
         return (
             <Router>
                 <div className="App">
                     <div className="App-header">
-                        <Link to="/"><div className='mkApp'>MK APP</div></Link>
+                        <span className="cat">
+                            <FontAwesomeIcon icon="cat"/>
+                        </span>
+                        <Link to="/">
+                            <div className='mkApp'>MK APP</div>
+                        </Link>
                         {isMobile &&
                         <span className='shoppingCartFilter'>
-                        <Link to="/shopping-cart/"><span className='shoppingIcon'><FontAwesomeIcon
-                            icon="shopping-cart"/></span></Link>
-                        <span onClick={() => this.setState({filterModalIsOpen: true})}
-                              className='filterIcon'><FontAwesomeIcon icon="filter"/></span>
-                    </span>
+                            <Link to="/shopping-cart/"> <div className='shoppingIcon' onClick={() => this.setState({})}> <FontAwesomeIcon
+                                icon="shopping-cart"/> </div> </Link><NotificationBadge count={counterMobile}
+                                                                                        effect={Effect.SCALE}
+                                                                                        label={'render'}
+                        label={NotificationBadge.propTypes.label}/>
+                                <span onClick={() => this.setState({filterModalIsOpen: true})}
+                                      className='filterIcon'><FontAwesomeIcon icon="filter"/></span>
+                        </span>
                         }
                     </div>
-
-                    <BackToTop
-                        showAt={100}
-                        speed={1500}
-                        easing="easeInOutQuint"
-                        showOnScrollUp={false}
-                        style={this.backToTop}
-                    >
-
-                        <span>Back to Top</span>
-                    </BackToTop>
-
-                    {this.props.todos}
-                    <div className="container">{
-
-                        !isMobile &&
-                        <div className="sizesContainer">
-                            < ChooseSize/>
-                            <button className="goToBasket" onClick={() => openOrCloseBasket(true)}>Open basket
-                            </button>
-                        </div>
-
-                    }
-                        <div className="listConatainer">
-                            <ClothesList/></div>
-
-                    </div>
-                    {isBasketTime &&
-                    <div>
-                        <Basket isMobile={isMobile}/>
-
-                    </div>}
-                    < IconComponent/>
-                    <Modal
-                        isOpen={filterModalIsOpen}
-                        //onAfterOpen={this.afterOpenModal}
-                        //onRequestClose={this.closeModal}
-                        style={this.customStyles}
-                        //contentLabel="Example Modal"
-                    >
-                        < ChooseSize mobileMode={true}/>
+                    <Modal isOpen={filterModalIsOpen} style={this.customStyles}>
+                        <ChooseSize mobileMode={true}/>
                         <div className='backToShop'>
-                            <Button variant="contained" onClick={() => this.setState({filterModalIsOpen: false})}>Back
+                            <Button variant="contained" onClick={(e) =>  this.setState({filterModalIsOpen: false}) }>Back
                                 To Shop</Button>
                         </div>
                     </Modal>
                 </div>
-
-                <Route path="/shopping-cart/" component={() => <Basket isMobile={isMobile}/>} />
-
+                <Switch>
+                    <Route path="/home" component={() => <Home isMobile={isMobile}/>}/>
+                    <Route path="/shopping-cart" component={() => <Basket isMobile={isMobile}/>}/>
+                    <Redirect strict from="/" to="home"/>
+                </Switch>
             </Router>
+
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        isBasketTime: state.openOrCloseBasket.isBasketTime
+        isBasketTime: state.openOrCloseBasket.isBasketTime,
+        counterMobile: state.counterMobile.counterMobile
     }
 }
 

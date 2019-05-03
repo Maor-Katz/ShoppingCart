@@ -3,6 +3,7 @@ const initialState = {
 };
 
 export const addToBasket = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case 'ADD_TO_BASKET':
             action.newShirt['chosenSize']=action.chosenSize //addind chosen size property to shirt object
@@ -12,7 +13,6 @@ export const addToBasket = (state = initialState, action) => {
         case 'DELETE_SHIRT':
             let afterDelete = Object.assign({}, state, {
                 myList: state.myList.filter((shirt,index) => {
-                    debugger
 
                     return index !== action.newShirt
                 })

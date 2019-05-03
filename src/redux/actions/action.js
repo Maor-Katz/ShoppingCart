@@ -35,3 +35,8 @@ export const openOrCloseModalSize= val => {
         modalOpen: val
     }
 }
+export const basketCounter= (action) => {
+    return {
+        type: action,
+    }
+}

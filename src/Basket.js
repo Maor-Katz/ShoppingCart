@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux'
-import {addList, addToBasket, openOrCloseBasket} from "./redux/actions/action";
+import {addList, addToBasket, basketCounter, openOrCloseBasket} from "./redux/actions/action";
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faStroopwafel, faCat, faWindowClose} from '@fortawesome/free-solid-svg-icons'
@@ -19,21 +19,28 @@ export class Basket extends React.Component {
         this.state = {images: [logo5, logo4, logo3, logo2, logo1],}
     }
 
+    componentDidMount() {
+        const {isMobile} = this.props
+        if (isMobile) {
+            document.getElementsByClassName('shoppingCartFilter')[0].style.display= 'none'
+        }
+    }
+
     render() {
         library.add(faCat, faStroopwafel, faWindowClose)
-        const {openOrCloseBasket, myList, addToBasket, isMobile} = this.props;
-
+        const {openOrCloseBasket, myList, addToBasket, isMobile, basketCounter} = this.props;
+debugger
 
         const {images} = this.state;
         return (
 
             <div className="basket">
-                { !isMobile &&
-                    <div className="closeDrawer" onClick={() => {
-                        openOrCloseBasket(false);
-                    }}>
-                        <FontAwesomeIcon icon="window-close"/>
-                    </div>
+                {!isMobile &&
+                <div className="closeDrawer" onClick={() => {
+                    openOrCloseBasket(false);
+                }}>
+                    <FontAwesomeIcon icon="window-close"/>
+                </div>
                 }
                 <div className="basketList">
 
@@ -47,16 +54,20 @@ export class Basket extends React.Component {
                                     <div><img alt="description" className="imgBasket"
                                               src={images[Math.floor(Math.random() * images.length)]}/></div>
                                 </div>
+
                             </div>
-                            <div className="deleteShirt" onClick={() => addToBasket(index, 'DELETE_SHIRT')}>
-                                <FontAwesomeIcon icon="window-close"/></div>
+                            <span className="deleteShirt" onClick={() => {
+                                addToBasket(index, 'DELETE_SHIRT');
+                                 basketCounter('REMOVE_FROM_COUNTER')
+                            }}>
+                                <FontAwesomeIcon icon="window-close"/></span>
                         </div>
                     })
                     }
 
                 </div>
                 {isMobile &&
-                <div className='backToTopBasket'><Link to="/" ><Button variant="contained" >Back
+                <div className='backToTopBasket'><Link to="/home"><Button variant="contained">Back
                     To Shop</Button></Link></div>
                 }
 
@@ -67,6 +78,7 @@ export class Basket extends React.Component {
 }
 
 const mapStateToProps = state => {
+    debugger
     return {
         isBasketTime: state.openOrCloseBasket.isBasketTime,
         myList: state.addToBasket.myList,
@@ -75,10 +87,14 @@ const mapStateToProps = state => {
 }
 
 function mapDispatchToProps(dispatch) {
+    debugger
     return {
         addList: (val) => dispatch(addList(val)),
         addToBasket: (shirt, action) => dispatch(addToBasket(shirt, action)),
         openOrCloseBasket: (close) => dispatch(openOrCloseBasket(close)),
+        basketCounter: action => {
+            debugger
+            dispatch(basketCounter(action))}
     }
 }
 
