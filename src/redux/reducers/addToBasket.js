@@ -3,7 +3,6 @@ const initialState = {
 };
 
 export const addToBasket = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case 'ADD_TO_BASKET':
             action.newShirt['chosenSize']=action.chosenSize //addind chosen size property to shirt object

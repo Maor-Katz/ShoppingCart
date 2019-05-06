@@ -3,7 +3,6 @@ const initialState = {
 };
 
 export const counterMobile = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case 'ADD_TO_COUNTER':
             var newState = Object.assign({}, state, {counterMobile: state.counterMobile+1});

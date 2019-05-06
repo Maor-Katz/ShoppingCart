@@ -22,18 +22,15 @@ export class Basket extends React.Component {
     componentDidMount() {
         const {isMobile} = this.props
         if (isMobile) {
-            document.getElementsByClassName('shoppingCartFilter')[0].style.display= 'none'
+            document.getElementsByClassName('shoppingCartFilter')[0].style.display = 'none'
         }
     }
 
     render() {
         library.add(faCat, faStroopwafel, faWindowClose)
         const {openOrCloseBasket, myList, addToBasket, isMobile, basketCounter} = this.props;
-debugger
-
         const {images} = this.state;
         return (
-
             <div className="basket">
                 {!isMobile &&
                 <div className="closeDrawer" onClick={() => {
@@ -58,7 +55,7 @@ debugger
                             </div>
                             <span className="deleteShirt" onClick={() => {
                                 addToBasket(index, 'DELETE_SHIRT');
-                                 basketCounter('REMOVE_FROM_COUNTER')
+                                basketCounter('REMOVE_FROM_COUNTER')
                             }}>
                                 <FontAwesomeIcon icon="window-close"/></span>
                         </div>
@@ -78,7 +75,6 @@ debugger
 }
 
 const mapStateToProps = state => {
-    debugger
     return {
         isBasketTime: state.openOrCloseBasket.isBasketTime,
         myList: state.addToBasket.myList,
@@ -87,14 +83,11 @@ const mapStateToProps = state => {
 }
 
 function mapDispatchToProps(dispatch) {
-    debugger
     return {
         addList: (val) => dispatch(addList(val)),
         addToBasket: (shirt, action) => dispatch(addToBasket(shirt, action)),
         openOrCloseBasket: (close) => dispatch(openOrCloseBasket(close)),
-        basketCounter: action => {
-            debugger
-            dispatch(basketCounter(action))}
+        basketCounter: action => dispatch(basketCounter(action))
     }
 }
 

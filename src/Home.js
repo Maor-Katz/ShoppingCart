@@ -10,9 +10,8 @@ import {connect} from "react-redux";
 export class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = {}
 
-        }
     }
     componentDidMount() {
         const {isMobile} = this.props
@@ -24,7 +23,6 @@ export class Home extends Component {
     render() {
         const {isBasketTime, openOrCloseBasket, isMobile} = this.props
         return (
-
             <div className="container">{
                 !isMobile &&
                 <div className="sizesContainer">
@@ -38,12 +36,10 @@ export class Home extends Component {
                 <div className={`listConatainer ${isMobile ? ' marginTop' : ''}`}>
                     <ClothesList isMobile={isMobile}/>
                 </div>
-
                 {isBasketTime &&
                 <div>
                     <Basket isMobile={isMobile}/>
                 </div>}
-
             </div>
         );
     }

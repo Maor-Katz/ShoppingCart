@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux'
 import {addList, sortList} from "./redux/actions/action";
-
 const {listFromJson} = require('./usefullFunctions');
 
 
@@ -29,7 +28,8 @@ export class ChooseSize extends React.Component {
                 {!mobileMode &&
                 <div>
                     <div className="textGithub">Like my project github!</div>
-                    <a className="starButton" href="https://github.com/Maor-Katz/ShoppingCart" target="_blank" rel="noopener noreferrer">Click To
+                    <a className="starButton" href="https://github.com/Maor-Katz/ShoppingCart" target="_blank"
+                       rel="noopener noreferrer">Click To
                         Star</a>
                 </div>
                 }
@@ -41,7 +41,6 @@ export class ChooseSize extends React.Component {
 const mapStateToProps = state => {
     return {
         list: state && state.clothesListReducers ? state.clothesListReducers.list : [],
-
     }
 }
 
@@ -49,7 +48,6 @@ function mapDispatchToProps(dispatch) {
     return {
         addList: (val) => dispatch(addList(val)),
         sortList: (sortBy) => dispatch(sortList(sortBy)),
-
     }
 }
 
