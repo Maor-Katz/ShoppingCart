@@ -78,7 +78,6 @@ class ClothesList extends React.Component {
         });
     }
     getSizeOfShirtAndAdd = (index) => {
-        debugger
         const {addToBasket, list, openOrCloseModalSize, basketCounter} = this.props
         if (getSelectedSize('mySelect', index)) {
             let chosenSize = getSelectedSize('mySelect', index)
@@ -104,16 +103,12 @@ class ClothesList extends React.Component {
     render() {
         const {filteredList, modalOpen, openOrCloseModalSize, isMobile} = this.props;
         const {images} = this.state;
-        // var imageIndex = -1;
-        debugger
         return (
             <div className="clothes">
                 <div
                     className="productsText">{filteredList.length > 1 ? `${filteredList.length} Product(s) found.` : `${filteredList.length} Product found`}</div>
                 <div className="clothesList">
                     {filteredList.map((shirt, index) => {
-                        // imageIndex = this.chooseAnotherImage(imageIndex)
-                        debugger
                         return <div key={index} className="shirt">
                             <div className="titleShirt">{shirt.title}</div>
                             <div className="lineInShirt"></div>

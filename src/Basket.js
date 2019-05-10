@@ -49,7 +49,6 @@ export class Basket extends React.Component {
                 <div className="basketList">
 
                     {myList && myList.map((shirt, index) => {
-debugger
                         return <div className="shirtInBasket" key={index}>
                             <div className="shirtDetails">
                                 <div className="title">{shirt.title}</div>

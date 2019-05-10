@@ -4,7 +4,6 @@ export const addList = val => ({
 })
 
 export const addToBasket = (val, action, chosenSize, imageIndex) => {
-    debugger
     return {
         type: action,
         newShirt: val,
