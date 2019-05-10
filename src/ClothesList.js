@@ -37,7 +37,8 @@ class ClothesList extends React.Component {
                 textAlign: 'center',
                 fontSize: '20px',
                 backgroundColor: '#039be5',
-                color: 'white'
+                color: 'white',
+
             }
         };
         this.customStylesMobile = {
@@ -54,7 +55,7 @@ class ClothesList extends React.Component {
                 textAlign: 'center',
                 fontSize: '20px',
                 backgroundColor: '#039be5',
-                color: 'white'
+                color: 'white',
             }
         }
     }
@@ -77,7 +78,7 @@ class ClothesList extends React.Component {
         });
     }
     getSizeOfShirtAndAdd = (index) => {
-
+        debugger
         const {addToBasket, list, openOrCloseModalSize, basketCounter} = this.props
         if (getSelectedSize('mySelect', index)) {
             let chosenSize = getSelectedSize('mySelect', index)
@@ -87,6 +88,13 @@ class ClothesList extends React.Component {
         else
             openOrCloseModalSize(true);
     }
+    // chooseAnotherImage = (x) => {
+    //     x = x + 1;
+    //     if (x === 4) {
+    //         x = 0
+    //     }
+    //     return x
+    // }
 
     componentDidMount() {
         const {addList, list} = this.props
@@ -96,12 +104,16 @@ class ClothesList extends React.Component {
     render() {
         const {filteredList, modalOpen, openOrCloseModalSize, isMobile} = this.props;
         const {images} = this.state;
+        // var imageIndex = -1;
+        debugger
         return (
             <div className="clothes">
                 <div
                     className="productsText">{filteredList.length > 1 ? `${filteredList.length} Product(s) found.` : `${filteredList.length} Product found`}</div>
                 <div className="clothesList">
                     {filteredList.map((shirt, index) => {
+                        // imageIndex = this.chooseAnotherImage(imageIndex)
+                        debugger
                         return <div key={index} className="shirt">
                             <div className="titleShirt">{shirt.title}</div>
                             <div className="lineInShirt"></div>
@@ -115,15 +127,18 @@ class ClothesList extends React.Component {
                                                                                    onChange={() => this.handleChange(index)}>{size}</option>)}
                             </Select>}</div>
                             <div><img alt="description" className="imgShop"
-                                      src={images[Math.floor(Math.random() * images.length)]}/>
+                                      src={images[shirt.imageIndex]}/>
                             </div>
                             <div>
-                                <button className="addButton" onClick={() => this.getSizeOfShirtAndAdd(index)
-                                }>Add To Cart
+                                <button className="addButton"
+                                        onClick={() => this.getSizeOfShirtAndAdd(index)
+                                        }>Add To Cart
                                 </button>
                             </div>
 
                         </div>
+
+
                     })}
                 </div>
                 <div className='footer'></div>
@@ -133,8 +148,8 @@ class ClothesList extends React.Component {
                     style={!isMobile ? this.customStyles : this.customStylesMobile}
                 >
                     <div className='chooseAnySize'>Please Select Size</div>
-                    <div>
-                        <Button variant="contained" className="addButton"
+                    <div className="okButton">
+                        <Button variant="contained" className="addButton" className="okButton"
                                 onClick={() => openOrCloseModalSize(false)}>OK</Button>
                     </div>
                 </Modal>
@@ -166,7 +181,7 @@ const mapStateToProps = state => {
 function mapDispatchToProps(dispatch) {
     return {
         addList: (val) => dispatch(addList(val)),
-        addToBasket: (shirt, action, chosenSize) => dispatch(addToBasket(shirt, action, chosenSize)),
+        addToBasket: (shirt, action, chosenSize, imageIndex) => dispatch(addToBasket(shirt, action, chosenSize, imageIndex)),
         openOrCloseModalSize: value => dispatch(openOrCloseModalSize(value)),
         basketCounter: action => dispatch(basketCounter(action))
     }

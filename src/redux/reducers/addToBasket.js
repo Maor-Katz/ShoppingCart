@@ -3,9 +3,11 @@ const initialState = {
 };
 
 export const addToBasket = (state = initialState, action) => {
+    debugger
     switch (action.type) {
         case 'ADD_TO_BASKET':
-            action.newShirt['chosenSize']=action.chosenSize //addind chosen size property to shirt object
+            action.newShirt['chosenSize']=action.chosenSize //adding chosen size property to shirt object
+            // action.newShirt['imageIndex']=action.imageIndex//adding imageIndex property to shirt object
             let newState = Object.assign({}, state);
             newState.myList.push(action.newShirt);
             return newState;

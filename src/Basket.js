@@ -25,6 +25,13 @@ export class Basket extends React.Component {
             document.getElementsByClassName('shoppingCartFilter')[0].style.display = 'none'
         }
     }
+    takeAnotherImage = (x) => { // change image for shirt
+        x = x + 1;
+        if (x === 5) {
+            x = 0
+        }
+        return x
+    }
 
     render() {
         library.add(faCat, faStroopwafel, faWindowClose)
@@ -42,6 +49,7 @@ export class Basket extends React.Component {
                 <div className="basketList">
 
                     {myList && myList.map((shirt, index) => {
+debugger
                         return <div className="shirtInBasket" key={index}>
                             <div className="shirtDetails">
                                 <div className="title">{shirt.title}</div>
@@ -49,7 +57,7 @@ export class Basket extends React.Component {
                                 <div className="sizeOfShirt">Size: {shirt.chosenSize}</div>
                                 <div className="priceShirt"><span>{shirt.price}</span><span>{shirt.currencyId}</span>
                                     <div><img alt="description" className="imgBasket"
-                                              src={images[Math.floor(Math.random() * images.length)]}/></div>
+                                              src={images[shirt.imageIndex]}/></div>
                                 </div>
 
                             </div>

@@ -292,4 +292,5 @@ margin: 0 auto;
   .shirt:hover .addButton{
     background-color: black;
   }
+  .okButton{margin-top: 23px;}
 }

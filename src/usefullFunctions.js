@@ -1,7 +1,10 @@
 const listFromJson =  (addList) => {
     fetch('./Products.json')
-        .then(res => res.json())
+        .then(res => {
+            debugger
+            return res.json()})
         .then(data => {
+            debugger
             addList(data.products);
         })
 }

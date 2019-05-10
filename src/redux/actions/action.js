@@ -3,11 +3,12 @@ export const addList = val => ({
     shirtList: val
 })
 
-export const addToBasket = (val, action, chosenSize) => {
+export const addToBasket = (val, action, chosenSize, imageIndex) => {
+    debugger
     return {
         type: action,
         newShirt: val,
-        chosenSize
+        chosenSize,
     }
 }
 
