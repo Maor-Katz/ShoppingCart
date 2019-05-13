@@ -82,6 +82,13 @@ padding-left: 11px;
   display: flex;
   flex-direction: column;
 }
+.sizesWrapper{
+  flex: 1;
+}
+.sizesContainer{
+  position: fixed;
+  width: 25%;
+}
 .sizeText{
   text-align: center;
   font-weight: bold;
@@ -148,12 +155,13 @@ padding-left: 11px;
 .titleShirt{
   height: 45px;
   text-align: center;
+  font-weight: bold;
 }
 .shirt:hover .addButton{
-  background-color: #039be5;
+  background-color: black;
 }
 .addButton{
-  background-color: black;
+  background-color: #039be5;
   border: none;
   color: white;
   height: 40px;
@@ -246,6 +254,15 @@ margin: 0 auto;
   right: 50px;
 
 }
+.closeModalImage{
+  position: absolute;
+  right: 10px;
+  top: 13px;
+}
+.imgModal{
+  width: 360px;
+  height: 500px;
+}
 .deleteShirt:hover{cursor: pointer;}
 .chooseAnySize{font-size: 20px;}
 .footer{
@@ -290,7 +307,16 @@ margin: 0 auto;
   flex: 10;
 }
   .shirt:hover .addButton{
-    background-color: black;
+    background-color: #039be5;
   }
   .okButton{margin-top: 23px;}
+  .imgModal{
+    width: 250px;
+    height: 375px;
+  }
+  .closeModalImage{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
 }

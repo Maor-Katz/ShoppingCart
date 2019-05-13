@@ -8,13 +8,13 @@ import logo5 from "./images_for_project/4fdd2948-7ec7-442a-ac27-68634efa6f8a.jpg
 import {connect} from 'react-redux'
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
-
 import {addList, addToBasket, openOrCloseModalSize, basketCounter} from "./redux/actions/action";
 import BackToTop from "react-back-to-top-button";
-
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faStroopwafel, faCat, faWindowClose} from '@fortawesome/free-solid-svg-icons'
 
 const {listFromJson, getSelectedSize} = require('./usefullFunctions');
-
 
 class ClothesList extends React.Component {
     constructor(props) {
@@ -22,8 +22,28 @@ class ClothesList extends React.Component {
         this.state = {
             images: [logo5, logo4, logo3, logo2, logo1],
             size: '',
+            modalImageOpen: false,
+            modalImageIndex: 0,
         }
         this.customStyles = {
+            content: {
+                top: '50%',
+                height: '83%',
+                width: '35%',
+                left: '50%',
+                right: 'auto',
+                bottom: 'auto',
+                marginRight: '-50%',
+                transform: 'translate(-50%, -50%)',
+                borderRadius: '15px',
+                textAlign: 'center',
+                fontSize: '20px',
+                backgroundColor: '#039be5',
+                color: 'white',
+
+            }
+        };
+        this.customStylesImage = {
             content: {
                 top: '50%',
                 height: '11%',
@@ -58,10 +78,27 @@ class ClothesList extends React.Component {
                 color: 'white',
             }
         }
+        this.customStylesMobileImage = {
+            content: {
+                top: '50%',
+                height: '60%',
+                width: '80%',
+                left: '50%',
+                right: 'auto',
+                bottom: 'auto',
+                marginRight: '-50%',
+                transform: 'translate(-50%, -50%)',
+                borderRadius: '15px',
+                textAlign: 'center',
+                fontSize: '20px',
+                backgroundColor: '#039be5',
+                color: 'white',
+            }
+        }
     }
 
     backToTop = {
-        backgroundColor: '#039be5',
+        backgroundColor: 'black',
         borderRadius: '20px',
         width: '150px',
         height: '50px',
@@ -87,13 +124,13 @@ class ClothesList extends React.Component {
         else
             openOrCloseModalSize(true);
     }
-    // chooseAnotherImage = (x) => {
-    //     x = x + 1;
-    //     if (x === 4) {
-    //         x = 0
-    //     }
-    //     return x
-    // }
+    openModalImage = (modalImageIndex) => {
+        const {modalImageOpen} = this.state
+        this.setState({
+            modalImageOpen: true,
+            modalImageIndex
+        });
+    }
 
     componentDidMount() {
         const {addList, list} = this.props
@@ -101,8 +138,9 @@ class ClothesList extends React.Component {
     }
 
     render() {
+        library.add(faWindowClose);
         const {filteredList, modalOpen, openOrCloseModalSize, isMobile} = this.props;
-        const {images} = this.state;
+        const {images, modalImageIndex, modalImageOpen} = this.state;
         return (
             <div className="clothes">
                 <div
@@ -122,7 +160,8 @@ class ClothesList extends React.Component {
                                                                                    onChange={() => this.handleChange(index)}>{size}</option>)}
                             </Select>}</div>
                             <div><img alt="description" className="imgShop"
-                                      src={images[shirt.imageIndex]}/>
+                                      src={images[shirt.imageIndex]}
+                                      onClick={() => this.openModalImage(shirt.imageIndex)}/>
                             </div>
                             <div>
                                 <button className="addButton"
@@ -130,17 +169,14 @@ class ClothesList extends React.Component {
                                         }>Add To Cart
                                 </button>
                             </div>
-
                         </div>
-
-
                     })}
                 </div>
                 <div className='footer'></div>
                 <Modal
                     isOpen={modalOpen}
                     ariaHideApp={false}
-                    style={!isMobile ? this.customStyles : this.customStylesMobile}
+                    style={!isMobile ? this.customStylesMobileImage : this.customStylesMobile}
                 >
                     <div className='chooseAnySize'>Please Select Size</div>
                     <div className="okButton">
@@ -148,16 +184,31 @@ class ClothesList extends React.Component {
                                 onClick={() => openOrCloseModalSize(false)}>OK</Button>
                     </div>
                 </Modal>
-                <BackToTop
-                    showAt={100}
-                    speed={1500}
-                    easing="easeInOutQuint"
-                    showOnScrollUp={false}
-                    style={this.backToTop}
+                <Modal// image modal
+                    isOpen={modalImageOpen}
+                    ariaHideApp={false}
+                    style={!isMobile ? this.customStyles : this.customStylesMobileImage}
                 >
-                    <span>Back to Top</span>
-                </BackToTop>
-            </div>
+
+                    <span className="imageModal">
+                        <img alt="description" className="imgModal"
+                             src={images[modalImageIndex]}/>
+                    </span>
+                    <span className="closeModalImage" onClick={() => this.setState({modalImageOpen: false})}>
+                                <FontAwesomeIcon icon="window-close"/></span>
+                </Modal>
+                {!modalImageOpen &&
+                    <BackToTop
+                        showAt={100}
+                        speed={1500}
+                        easing="easeInOutQuint"
+                        showOnScrollUp={false}
+                        style={this.backToTop}
+                    >
+                        <span>Back to Top</span>
+                    </BackToTop>
+                }
+                </div>
         );
     }
 }

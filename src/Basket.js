@@ -25,13 +25,6 @@ export class Basket extends React.Component {
             document.getElementsByClassName('shoppingCartFilter')[0].style.display = 'none'
         }
     }
-    takeAnotherImage = (x) => { // change image for shirt
-        x = x + 1;
-        if (x === 5) {
-            x = 0
-        }
-        return x
-    }
 
     render() {
         library.add(faCat, faStroopwafel, faWindowClose)
@@ -68,15 +61,12 @@ export class Basket extends React.Component {
                         </div>
                     })
                     }
-
                 </div>
                 {isMobile &&
                 <div className='backToTopBasket'><Link to="/home"><Button variant="contained">Back
                     To Shop</Button></Link></div>
                 }
-
             </div>
-
         );
     }
 }

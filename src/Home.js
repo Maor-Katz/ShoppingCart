@@ -25,6 +25,7 @@ export class Home extends Component {
         return (
             <div className="container">{
                 !isMobile &&
+                    <div className='sizesWrapper'>
                 <div className="sizesContainer">
                     < ChooseSize/>
                     <div className='goToBasketWrapper'>
@@ -32,6 +33,7 @@ export class Home extends Component {
                         </button>
                     </div>
                 </div>
+                    </div>
             }
                 <div className={`listConatainer ${isMobile ? ' marginTop' : ''}`}>
                     <ClothesList isMobile={isMobile}/>
