@@ -132,7 +132,7 @@ class ClothesList extends React.Component {
         });
     }
 
-    componentDidMount() {
+    componentWillMount() {
         const {addList, list} = this.props
         list.length === 0 && listFromJson(addList) // if list is empty, add all products to the list
     }
@@ -141,6 +141,8 @@ class ClothesList extends React.Component {
         library.add(faWindowClose);
         const {filteredList, modalOpen, openOrCloseModalSize, isMobile} = this.props;
         const {images, modalImageIndex, modalImageOpen} = this.state;
+        const clothesList=3
+        debugger
         return (
             <div className="clothes">
                 <div

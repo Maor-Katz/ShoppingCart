@@ -75,13 +75,19 @@ padding-left: 11px;
   background-color: #039be5;
   cursor: pointer;
 }
+.notficationSymbol{
+  position: relative;
+  top: 90px;
+  right: 130px;
+}
 .sizes{
-  text-align: left;
+  text-align: center;
   max-width: 300px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
+
 .sizesWrapper{
   flex: 1;
 }
@@ -268,7 +274,9 @@ margin: 0 auto;
 .footer{
   height: 10px;
 }
-.goToBasketWrapper{text-align: center}
+.goToBasketWrapper{
+  text-align: center;
+}
 
 @media (max-width: 700px) {
   @keyframes drawer {
@@ -289,9 +297,7 @@ margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 15px;
 }
-.sizes{
-  text-align: center;
-}
+
 .backToShop{
   margin-top: 15px;
 }

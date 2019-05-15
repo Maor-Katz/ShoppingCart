@@ -18,7 +18,9 @@ class App extends Component {
     }
 
     updateDimensions = (e) => {
-        e.target.innerWidth < 700 ? this.setState({isMobile: true}) : this.setState({isMobile: false})
+        if(this.state.isMobile===false) {
+            e.target.innerWidth < 700 ? this.setState({isMobile: true}) : this.setState({isMobile: false})
+        }
     }
 
     componentDidMount() {

@@ -5,6 +5,7 @@ import ClothesList from "./ClothesList";
 import Basket from "./Basket";
 import {addList, addToBasket, openOrCloseBasket} from "./redux/actions/action";
 import {connect} from "react-redux";
+import NotificationBadge from 'react-notification-badge';
 
 
 export class Home extends Component {
@@ -12,6 +13,12 @@ export class Home extends Component {
         super(props);
         this.state = {}
 
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log(nextProps, nextState);
+        console.log(this.props, this.state);
+
+        return false;
     }
     componentDidMount() {
         const {isMobile} = this.props
@@ -21,7 +28,9 @@ export class Home extends Component {
     }
 
     render() {
-        const {isBasketTime, openOrCloseBasket, isMobile} = this.props
+        const {isBasketTime, openOrCloseBasket, isMobile, counterMobile} = this.props
+        const home = 2
+        debugger
         return (
             <div className="container">{
                 !isMobile &&
@@ -29,6 +38,8 @@ export class Home extends Component {
                 <div className="sizesContainer">
                     < ChooseSize/>
                     <div className='goToBasketWrapper'>
+                        <div className="notficationSymbol"><NotificationBadge count={counterMobile}
+                        /></div>
                         <button className="goToBasket" onClick={() => openOrCloseBasket(true)}>Open basket
                         </button>
                     </div>
